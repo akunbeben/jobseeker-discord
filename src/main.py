@@ -31,3 +31,5 @@ async def on_message(message):
         await message.channel.send(index)
 
 client.run(config('TOKEN'))
+
+# print(karir.getKarir("payroll"))

@@ -3,7 +3,13 @@ import json
 import rupiah
 
 def getKarir(keyword):
-    url = 'https://www.karir.com/search?q=programmer&sort_order=newest'
+    keyword = keyword.replace(" ", "%20")
+    url = 'https://www.karir.com/search?q={0}&sort_order=newest'.format(keyword)
+
+    # params = {
+    #     'q': keyword,
+    #     'sort_order': "newest"
+    # }
 
     response = requests.get(url, headers={
         "Accept": "application/json",
@@ -16,7 +22,7 @@ def getKarir(keyword):
 
     dataLength = len(listJobs)
 
-    divider = (dataLength / 3)
+    divider = round((dataLength / 3))
 
     indexStep = 0
 
@@ -42,14 +48,15 @@ def getKarir(keyword):
 
         indexStep += 1
 
-        if(index <= (divider - 1)):
+        if((index + 1) <= divider):
             fullString[0] += strings.format(**jobDict)
 
         if(indexStep > divider):
-            if(indexStep < (divider * 2)):
+            if(indexStep <= (divider * 2)):
                 fullString[1] += strings.format(**jobDict)
 
         if(indexStep > (divider * 2) <= (dataLength - 1)):
             fullString[2] += strings.format(**jobDict)
 
-    return fullString
+    # return filter(None, fullString)
+    return [filtered for filtered in fullString if filtered.strip()]

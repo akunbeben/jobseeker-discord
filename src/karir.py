@@ -1,6 +1,6 @@
 import requests
 import json
-import rupiah
+from src import rupiah
 
 def getKarir(keyword):
     keyword = keyword.replace(" ", "%20")

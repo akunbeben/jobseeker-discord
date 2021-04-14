@@ -1,6 +1,6 @@
 import requests
 import json
-import rupiah
+from src import rupiah
 
 def getKalibrr(keyword):
     url = 'https://www.kalibrr.id/kjs/job_board/search'

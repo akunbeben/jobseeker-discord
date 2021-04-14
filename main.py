@@ -1,6 +1,6 @@
-import kalibrr
-import karir
 import discord
+from src import kalibrr
+from src import karir
 from decouple import config
 
 client = discord.Client()

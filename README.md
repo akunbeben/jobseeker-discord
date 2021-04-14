@@ -3,7 +3,7 @@ A simple discord BOT that can search job information for you.
 
 ## Resources
 - [karir.com](https://www.karir.com)
-- [kalibrr.id](https://www.karir.id)
+- [kalibrr.id](https://www.kalibrr.id)
 
 ## Available Commands
 `!karircom` 

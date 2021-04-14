@@ -1,3 +1,4 @@
 /Discord
 /.vscode
+/src/__pycache__
 .env

@@ -64,4 +64,4 @@ def getKalibrr(keyword):
         if(indexStep > (divider)):
             outputString[1] += string.format(**jobDictionary)
 
-    return outputString
+    return [filtered for filtered in outputString if filtered.strip()]

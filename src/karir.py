@@ -58,5 +58,4 @@ def getKarir(keyword):
         if(indexStep > (divider * 2) <= (dataLength - 1)):
             fullString[2] += strings.format(**jobDict)
 
-    # return filter(None, fullString)
     return [filtered for filtered in fullString if filtered.strip()]

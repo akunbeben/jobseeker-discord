@@ -6,11 +6,6 @@ def getKarir(keyword):
     keyword = keyword.replace(" ", "%20")
     url = 'https://www.karir.com/search?q={0}&sort_order=newest'.format(keyword)
 
-    # params = {
-    #     'q': keyword,
-    #     'sort_order': "newest"
-    # }
-
     response = requests.get(url, headers={
         "Accept": "application/json",
         "Content-Type": "application/json"
@@ -44,7 +39,17 @@ def getKarir(keyword):
             'jobId': listJobs[index]["id"],
         }
 
-        strings = "Job Position: **{jobPosition}**\nJob Salary: {jobSalary}\nCompany Name: {jobCompany}\nCompany Email: {jobEmail}\nCompany Website: **<{jobWebsite}>**\nCompany Branch Location: {jobLocation}\nAvailable until: {jobExpiredDate}\nSource: <https://www.karir.com/opportunities/{jobId}/>\n------------------------------------------------------------------\n"
+        strings = '''**{jobPosition}**
+<https://www.karir.com/opportunities/{jobId}/>
+```
+Job Salary              : {jobSalary}
+Company Name            : {jobCompany}
+Company Email           : {jobEmail}
+Company Website         : {jobWebsite}
+Location                : {jobLocation}
+Available until         : {jobExpiredDate}```
+
+'''
 
         indexStep += 1
 

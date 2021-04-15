@@ -54,7 +54,15 @@ def getKalibrr(keyword):
             'jobDetail': "https://www.kalibrr.id/c/" + companyCode + "/jobs/" + str(data[index]["id"])
         }
 
-        string = "```\n{jobName}\n\nSalary: {jobSalary}\n\nCompany Name: {companyName}\n\nLocation: {location}\n\nTenure: {jobType}\n\nRemote?: {isWfh}\n\n```**Details**: <{jobDetail}>\n\n"
+        string = '''**{jobName}**
+<{jobDetail}>
+```
+Salary          : {jobSalary}
+Company Name    : {companyName}
+Location        : {location}
+Tenure          : {jobType}
+Remote          : {isWfh}```
+'''
 
         indexStep += 1
 

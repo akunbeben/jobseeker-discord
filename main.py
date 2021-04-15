@@ -16,18 +16,19 @@ async def on_message(message):
         return
 
     if message.content.startswith('!kalibr'):
-        await message.channel.send("Here is the list of jobs for you <@{0.author.id}>, Source: https://www.kalibrr.id/".format(message))
         keyword = msg.replace('!kalibr ', '')
         result = kalibrr.getKalibrr(keyword)
+        await message.channel.send("Here is the list of jobs for you <@{0.author.id}>, Source: https://www.kalibrr.id/".format(message))
         for index in result:
-            await message.channel.send(index)
+            embedMessage = discord.Embed(title="Result from https://www.kalibrr.id/", description="{0}".format(index), color=0x7F7F7F)
+            await message.channel.send(embed=embedMessage)
 
     if message.content.startswith('!karircom'):
-        await message.channel.send("Here is the list of jobs for you <@{0.author.id}>, Source: https://www.karir.com/".format(message))
         keyword = msg.replace('!karircom ', '')
         result = karir.getKarir(keyword)
-
-    for index in result:
-        await message.channel.send(index)
+        await message.channel.send("Here is the list of jobs for you <@{0.author.id}>, Source: https://www.karir.com/".format(message))
+        for index in result:
+            embedMessage = discord.Embed(title="Result from https://www.karir.com/", description="{0}".format(index), color=0x7F7F7F)
+            await message.channel.send(embed=embedMessage)
 
 client.run(config('TOKEN'))
